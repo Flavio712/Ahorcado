@@ -5,6 +5,21 @@ public class Ahorcado {
 	private char[] pUsuario;
 	private String pSecreta;
 	private int vidas;
+	private static String[] diccionario = {"INGENIERIA", "INGENIERO", "MANUAL", "METODO",
+	        "PROCESO", "DATOS", "PROGRAMA", "INFORMATICA", "COMPUTACION", "COMPUTADORA",
+	        "FORMATEO", "RAM", "MEMORIA", "DISCO", "USB", "RED", "WIFI", "INTELIGENCIA",
+	        "MOUSE", "TECLADO", "PANTALLA", "CODIGO", "LINUX", "WINDOWS", "SIMULACION",
+	        "METODOLOGIA", "KERNEL", "SISTEMA", "OPERACION", "GRAFICACION", "ALGORITMICA",
+	        "MATEMATICAS", "CALCULO", "ALGEBRA", "ESTRUCTURA", "DIAGRAMA", "CLASE",
+	        "OBJETO", "FUNCION", "LIBRERIA", "PLANTILLA", "EJECUTABLE", "COMANDO",
+	        "ERROR", "TERMINAL", "PILA", "PROGRAMADOR", "LICENCIA", "COMPUTO", "PROCESADOR",
+	        "LENGUAJE", "PROGRAMACION", "HERRAMIENTAS", "INTERNET", "EJECUTAR", "PROYECTO",
+	        "METODO", "METRICA", "SOFTWARE", "ADMINISTRACION", "VENTANA", "MANTENIMIENTO",
+	        "ENSAMBLADOR", "PRUEBA", "VERSION", "DEMOSTRACION", "CICLO", "CONDICION",
+	        "INSTRUCCION", "BYTE", "BIT", "BUG", "ROLLOVER", "BIOS", "CPU", "ROM",
+	        "COBOL", "FORTRAN", "LAN", "WAN", "CANAL", "COMPILADOR", "FUENTE", 
+	        "EJECUTABLE", "APLICACION", "KILOBYTE", "MEGABYTE", "INDUSTRIA", "SIMBOLO",
+	        "MICROSD"};
 	
 	public Ahorcado(String palabraSecreta) {
 		pUsuario = new char[palabraSecreta.length()];
@@ -75,10 +90,16 @@ public class Ahorcado {
 	
 	public static void main(String[] args) {
 		
-		Scanner s=new Scanner(System.in);
-		System.out.println("Ingrese la palabra");
+		String palabraAzar=null;
 		
-		String palabra = s.nextLine();
+		for(int i=0;i<diccionario.length;i++) {
+			int azar = (int) Math.floor(Math.random()*90);
+			palabraAzar = diccionario[azar];
+		}
+		System.out.println("AYUDA: Las posibles palabras son relacionadas al ambito de la informatica (SE UTILIZAN MAYÚSCULAS)");
+		
+		Scanner s=new Scanner(System.in);	
+		String palabra = palabraAzar;
 		
 		Ahorcado juegoAhorcado = new Ahorcado (palabra);
 		juegoAhorcado.mostrar();
